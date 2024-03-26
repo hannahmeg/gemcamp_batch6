@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+
+<!--  <div class="container-fluid">-->
+<!--    <div class="row flex-nowrap">-->
+<!--      <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light">-->
+<!--        <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">-->
+<!--          <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">-->
+<!--            <span class="fs-5 d-none d-sm-inline text-black">Menu</span>-->
+<!--          </a>-->
+<!--          <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">-->
+<!--            <li class="nav-item">-->
+<!--              <a href="#" class="nav-link align-middle px-0">-->
+<!--                <i class="fs-4 bi-house-heart text-black"></i> <span class="ms-1 d-none d-sm-inline text-black">Home</span>-->
+<!--              </a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--              <a href="/about" data-bs-toggle="collapse" class="nav-link px-0 align-middle">-->
+<!--                <i class="fs-4 bi-person-circle text-black"></i> <span class="ms-1 d-none d-sm-inline text-black">About</span> </a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--              <a href="/contact" data-bs-toggle="collapse" class="nav-link px-0 align-middle">-->
+<!--                <i class="fs-4 bi-telephone text-black"></i> <span class="ms-1 d-none d-sm-inline text-black">Contact Us</span> </a>-->
+<!--            </li>-->
+<!--          </ul>-->
+<!--          <hr>-->
+<!--        </div>-->
+
+<!--      </div>-->
+<!--      <div id="page-content-wrapper">-->
+<!--        <div class="container-fluid xyz">-->
+<!--          <div class="row">-->
+<!--            <div class="col-lg-12">-->
+<!--              <h1>Simple Admin Sidebar With Bootstrap by <a href="http://http://codepen.io/hughbalboa/">@hughbalboa</a></h1>-->
+<!--              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident laudantium nobis cum dignissimos ex inventore, velit blanditiis. Quod laborum soluta quidem culpa officia eligendi, quam, recusandae iste aliquid amet odit! </p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!------------->
+<style>
+    /*    .btn {*/
+    /*    .active, .btn:hover {*/
+    /*        background-color: #666;*/
+    /*        color: white;*/
+    /*}*/
+    .nav-link.active {
+        color: white;
+    }
+</style>
+<script>
+    document.querySelectorAll(".nav-link").forEach((link) => {
+        if (link.href === window.location.href) {
+            link.classList.add("active");
+            link.setAttribute("aria-current", "page");
+        }
+    });
+</script>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"></a>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="about">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="contact">Contact</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!--  ------------------->
+<!--<style>-->
+<!--.nav {-->
+<!--    position: relative;-->
+<!--    list-style: none;-->
+<!--    padding: 0;-->
+<!--    margin: 0;-->
+<!--}-->
+<!--.nav::before{-->
+<!--    content: "";-->
+<!--    position: absolute;-->
+<!--    top: 0;-->
+<!--    width: 50%;-->
+<!--    height: 100%;-->
+<!--    background: #fff;-->
+<!--    z-index: 1;-->
+<!--}-->
+<!--.active{-->
+<!--    background: rgb(177, 177, 177);-->
+<!--}-->
+<!--.nav::after {-->
+<!--    content: "";-->
+<!--    position: absolute;-->
+<!--    top: 0;-->
+<!--    width: 50%;-->
+<!--    height: 100%;-->
+<!--    background: rgb(0, 0, 0);-->
+<!--    z-index: 1;-->
+<!--}-->
+<!--.nav::before {-->
+<!--    left: 0;-->
+<!--    border-radius: 0 0 0 50%;-->
+<!--}-->
+<!--.nav::after {-->
+<!--    right: 0;-->
+<!--    border-radius: 0 0 50% 0;-->
+<!--}-->
+<!--.nav-item {-->
+<!--    position: relative;-->
+<!--    float: left;-->
+<!--    width: 16.66667%;-->
+<!--}-->
+<!--.nav-item a {-->
+<!--    display: block;-->
+<!--    padding: 10px 20px;-->
+<!--    border: 1px solid #ccc;-->
+<!--    text-decoration: none;-->
+<!--    color: #333;-->
+<!--    position: relative;-->
+<!--    z-index: 2;-->
+<!--}-->
+<!--</style>-->
+<!--<body>-->
+<!--<ul class="nav">-->
+<!--  <li class="nav-item"><a href="/">Home</a></li>-->
+<!--  <li class="nav-item"><a href="about">About</a></li>-->
+<!--  <li class="nav-item"><a href="contact">Contact</a></li>-->
+<!--</ul>-->
+
+<script>
+    var navItems = document.querySelectorAll(".nav-item");
+    for (var i = 0; i < navItems.length; i++) {
+        navItems[i].addEventListener("click", function() {
+            this.classList.add("active");
+        });
+    }
+</script>
+</body>
+</html>

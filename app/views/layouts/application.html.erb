@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Meg's Website</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Meg's Website</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <link rel="icon" href=
-      "https://img.freepik.com/premium-psd/pink-crystal-heart-transparent-background_161568-14295.jpg"
-          type="image/x-icon">
+  <link rel="icon" href=
+    "https://img.freepik.com/premium-psd/pink-crystal-heart-transparent-background_161568-14295.jpg"
+        type="image/x-icon">
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
-  </head>
-
-  <body>
-    <%= yield %>
-  </body>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+</head>
+<%= render partial: "welcome/header" %>
+<%= yield %>
+</body>
 </html>
