@@ -1,2 +1,126 @@
-<h1>About</h1>
-<p>Welcome to my page!</p>
+<style>
+    body {
+        background: #eee;
+        font-family: 'Lato', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    .card {
+        border: none;
+
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    .card:before {
+
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 4px;
+        height: 100%;
+        background-color: #ecb3c6;
+        transform: scaleY(1);
+        transition: all 0.5s;
+        transform-origin: bottom
+    }
+
+    .card:after {
+
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 4px;
+        height: 100%;
+        background-color: #d8668c;
+        transform: scaleY(0);
+        transition: all 0.5s;
+        transform-origin: bottom
+    }
+
+    .card:hover::after {
+        transform: scaleY(1);
+    }
+
+
+    .fonts {
+        font-size: 11px;
+    }
+
+    .social-list {
+        display: flex;
+        list-style: none;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .social-list li {
+        padding: 10px;
+        color: #d8668c;
+        font-size: 19px;
+    }
+
+
+    .buttons button{
+        border: 1px solid #d8668c !important;
+        background-color: #fff;
+        color: #d8668c;
+        height: 40px;
+        border-radius: 100px;
+    }
+
+    .buttons button:hover {
+        border: 1px solid #d8668c !important;
+        color: #fff;
+        height: 40px;
+        background-color: #d8668c;
+    }
+</style>
+
+<div class="container mt-5">
+
+  <div class="row d-flex justify-content-center">
+
+    <div class="col-md-7">
+
+      <div class="card p-3 py-4">
+
+        <div class="text-center">
+          <img src="https://scontent.fmnl8-3.fna.fbcdn.net/v/t39.30808-6/358738017_589069926716435_437699592794175972_n.png?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=-NNbgZl9pCEAX-iJomy&_nc_zt=23&_nc_ht=scontent.fmnl8-3.fna&oh=00_AfDmAoqEb2bIPysOXj3o6fgfygAmGV0l_AvVIL5elC3I9g&oe=6605682B" width="100" class="rounded-circle">
+        </div>
+
+        <div class="text-center mt-3">
+          <h5 class="mt-2 mb-0">KodaCamp</h5>
+          <span>Software Engineering Bootcamp</span>
+
+          <div class="px-4 mt-1">
+            <p style="font-size:14px;">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+              aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. </p>
+
+          </div>
+
+
+          <div class="buttons">
+
+            <a href=/> <button class="btn btn-outline-primary px-4">HOME</button></a>
+            <a href=contact> <button class="btn btn-primary px-4 ms-3">CONTACT US</button></a>
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

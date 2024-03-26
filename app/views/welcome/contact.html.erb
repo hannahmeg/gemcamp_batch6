@@ -1,2 +1,254 @@
-<h1>Contact Us</h1>
-<p>Welcome to my page!</p>
+<!doctype html>
+<html lang="ru">
+<style>
+    /*@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');*/
+    /*@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300');*/
+    /*@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:600');*/
+
+    * {
+        margin: 0
+    }
+
+    body {
+        background: #eee;
+        background-size: cover;
+        font-family: 'Lato', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    input:active, input:focus {
+        outline: none;
+    }
+
+    input {
+        border: 1px solid #d8668c;
+        box-sizing: border-box;
+        /*border-radius: 100px;*/
+        font-weight: 300;
+        font-size: 18px;
+        color: #9C9C9C;
+        font-family: inherit;
+        padding: 13px 25px;
+        background: transparent;
+        margin-bottom: 20px;
+        width: 350px;
+        max-width: 100%;
+    }
+
+    textarea {
+        border: 1px solid #d8668c;
+        box-sizing: border-box;
+        /*border-radius: 100px;*/
+        font-weight: 300;
+        font-size: 18px;
+        color: #9C9C9C;
+        font-family: inherit;
+        padding: 13px 25px;
+        background: transparent;
+        margin-bottom: 20px;
+        width: 350px;
+        /*max-width: 100%;*/
+    }
+
+    ul {
+        list-style: none;
+        padding: 0
+    }
+
+    ul li {
+        display: inline-block;
+        padding-right: 10px;
+    }
+
+    .container {
+        width: 70%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    @media (min-width: 576px) {
+        .container {
+            max-width: 540px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .container {
+            max-width: 720px;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .container {
+            max-width: 960px;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .container {
+            max-width: 1140px;
+        }
+    }
+
+
+    .wrapper {
+        margin: 125px 0;
+
+    }
+
+    .form {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .left-col {
+        width: 40%;
+        padding: 135px 30px 0 30px;
+        background: url(https://images.pexels.com/photos/3039853/pexels-photo-3039853.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)
+
+    }
+
+
+    .left-col h2 {
+        color: #fff;
+        font-size: 32px;
+        line-height: 37px;
+    }
+
+    .left-col img.img1 {
+        margin-bottom: 10px;
+    }
+
+    .left-col .bull {
+        margin: 100px 0 0;
+    }
+
+    .left-col .bull p {
+        font-size: 20px;
+        color: #fff;
+    }
+
+    .left-col .bull img.img2 {
+        margin: 25px 0;
+    }
+
+    .left-col .soc {
+        margin: 100px 0 0;
+    }
+
+    .left-col .soc a img {
+        transition: 0.5s;
+    }
+
+    .left-col .soc a img:hover {
+        transition: 0.5s;
+        transform: scale(1.3)
+    }
+
+    .left-col .soc p {
+        color: #fff;
+        font-size: 18px;
+        font-weight: 300;
+    }
+
+    .left-col .soc ul {
+        padding: 20px 0 50px;
+    }
+
+
+    .right-col {
+        width: 60%;
+        padding: 100px 30px 0 30px;
+        background: rgba(255, 255, 255, 0.7);
+
+    }
+
+    .right-col h2 {
+        margin-bottom: 20px;
+        font-size: 30px;
+        color: #585858;
+        font-weight: 600;
+    }
+
+    .right-col button {
+        border: 1px solid #d8668c !important;
+        background-color: #fff;
+        color: #d8668c;
+        height: 50px;
+        border-radius: 100px;
+    }
+
+    .right-col button:hover {
+        border: 1px solid #d8668c !important;
+        color: #fff;
+        height: 50px;
+        background-color: #d8668c;
+
+    }
+</style>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <title>Responsive Form</title>
+</head>
+<body>
+<div class="container">
+  <div class="wrapper">
+    <div class="form">
+      <div class="left-col">
+        <img src="img/ellipse1.png" class="img1" alt="">
+<!--        <h2>Leave us your email and get a BuJo Starter Kit</h2>-->
+        <div class="bull">
+<!--          <p>BuJo Guide</p>-->
+<!--          <img src="img/ellipse2.png" class="img2" alt="">-->
+<!--          <p>printable Calendex</p>-->
+<!--          <img src="img/ellipse2.png" class="img2" alt="">-->
+<!--          <p>printable Study Log</p>-->
+        </div>
+        <div class="soc">
+<!--          <p>follow us & we’ll follow you</p>-->
+          <ul>
+            <li><a href="#"><img src="img/fb.png" alt=""></a></li>
+            <li><a href="#"><img src="img/Insta.png" alt=""></a></li>
+            <li><a href="#"><img src="img/pinterest.png" alt=""></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="right-col">
+        <h2>Send us a message</h2>
+        <form>
+          <div class="result"></div>
+          <div class="form-group">
+            <input id="name" type="text" placeholder="Enter your name">
+          </div>
+
+          <div class="form-group">
+            <input id="email" type="email" placeholder="Enter your email">
+          </div>
+
+          <div class="form-group">
+            <textarea rows="6" placeholder="Your Message" id="message" name="message" required></textarea>
+          </div>
+          <button class="buttons" id="submit" type="submit">SEND</button>
+        </form>
+
+        <!--        <div class="buttons">-->
+
+                  <a href=/> <button class="btn btn-outline-primary px-4">HOME</button></a>
+                  <a href=contact> <button class="btn btn-primary px-4 ms-3">CONTACT US</button></a>
+        <!--        </div>-->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
