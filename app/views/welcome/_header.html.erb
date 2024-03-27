@@ -1,9 +1,9 @@
 <nav class="navbar navbar-expand-lg">
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <%= link_to "Home", root_path, class: "nav-link #{is_active if current_page?(root_path)}" %>
-      <%= link_to "About", about_path, class: "nav-link #{is_active if current_page?(about_path)}" %>
-      <%= link_to "Contact Us", contact_path, class: "nav-link #{is_active if current_page?(contact_path)}" %>
+      <%= link_to "Home", root_path, class: "nav-link #{'active' if current_page?(root_path)}" %>
+      <%= link_to "About", about_path, class: "nav-link #{'active' if current_page?(about_path)}" %>
+      <%= link_to "Contact Us", contact_path, class: "nav-link #{'active' if current_page?(contact_path)}" %>
     </ul>
   </div>
 </nav>
