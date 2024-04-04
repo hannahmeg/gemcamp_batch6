@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get 'contact', to: 'welcome#contact'
   get 'about', to: 'welcome#about'
-  get 'posts/index', to: 'posts#index'
-  get 'posts/new', to: 'posts#new'
+  # get 'posts/index', to: 'posts#index'
+  # get 'posts/new', to: 'posts#new'
   resources :posts
 end
