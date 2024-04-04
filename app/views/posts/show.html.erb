@@ -1,9 +1,11 @@
+<br>
+<br>
 <div class="container-md">
-<h1>show post id: <%= @post.id %></h1>
-<ul>
-  <li><%= @post.title %></li>
-  <li><%= @post.content %></li>
-</ul>
-
-<%= link_to 'Index', posts_path %>
+  <article class="blog-post">
+    <h2 class="blog-post-title"><%= @post.title %></h2>
+    <p class="blog-post-meta">Published on <%= @post.created_at %></p>
+    <p><%= @post.content %></p>
+  </article>
 </div>
+
+<%#= link_to 'Index', posts_path %>

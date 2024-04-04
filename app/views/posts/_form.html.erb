@@ -1,3 +1,19 @@
+<style>
+    .button {
+        border: 1px solid #d8668c !important;
+        background-color: #fff;
+        color: #d8668c;
+        height: 40px;
+        border-radius: 100px;
+    }
+
+    .button:hover {
+        border: 1px solid #d8668c !important;
+        color: #fff;
+        height: 40px;
+        background-color: #d8668c;
+    }
+</style>
 
 <%= form_with model: post do |form| %>
   <% if post.errors.any? %>
@@ -7,13 +23,15 @@
       <% end %>
     </ul>
   <% end %>
-  <div>
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="mb-3">
+    <%= form.label :"title:", class: 'form-label' %>
+    <%= form.text_field :title, class: 'form-control' %>
   </div>
-  <div>
-    <%= form.label :content %>
-    <%= form.text_field :content %>
+  <div class="mb-3">
+    <%= form.label :"content:", class: 'form-label' %>
+    <%= form.text_field :content, class: 'form-control' %>
   </div>
-  <%= form.submit %>
+  <div class = "buttons">
+  <%= form.submit class: 'button'%>
+  </div>
 <% end %>
