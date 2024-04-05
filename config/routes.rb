@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   get 'about', to: 'welcome#about'
   # get 'posts/index', to: 'posts#index'
   # get 'posts/new', to: 'posts#new'
-  resources :posts
+  resources :posts do
+    resources :comments, except: :show
+  end
 end
