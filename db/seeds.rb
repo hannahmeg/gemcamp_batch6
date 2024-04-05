@@ -6,20 +6,19 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-
 # 100.times do |index|
-#   Post.create
-#   (title: Faker::Lorem.sentence(word_count: 3, supplemental: false, random_words_to_add: 0).chop,
+#   Post.create (title: Faker::Lorem.sentence(word_count: 3, supplemental: false, random_words_to_add: 0).chop,
 #     content: Faker::Lorem.paragraph)
 # end
 
-
 20.times do |index|
-  Student.create
-  (name: Faker::Name.name,
-    student_number: Faker::Number.number(digits: 10),
-    birthdate: Faker::Date.birthday(min_age: 18, max_age: 30))
-end
-#
-# Faker::PhoneNumber.cell_phone_in_e164
+  student = Student.create(
+    name: Faker::Name.name,
+    student_number: Faker::Number.number(digits: 6),
+    birthdate: Faker::Date.birthday(min_age: 18, max_age: 30)
+  )
 
+  4.times do
+    student.phone_numbers.create(number: Faker::PhoneNumber.cell_phone_in_e164)
+  end
+end
