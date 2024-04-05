@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'students/index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -10,4 +11,6 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments, except: :show
   end
+
+  resources :students
 end

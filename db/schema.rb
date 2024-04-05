@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_05_072201) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_05_081342) do
   create_table "categories", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -23,6 +23,14 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_05_072201) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_comments_on_post_id"
+  end
+
+  create_table "phone_numbers", charset: "utf8mb4", force: :cascade do |t|
+    t.string "content"
+    t.bigint "student_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_phone_numbers_on_student_id"
   end
 
   create_table "post_category_ships", charset: "utf8mb4", force: :cascade do |t|
@@ -41,5 +49,13 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_05_072201) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "students", charset: "utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.string "student_number"
+    t.string "birthdate"
+    t.string "timestamps"
+  end
+
   add_foreign_key "comments", "posts"
+  add_foreign_key "phone_numbers", "students"
 end

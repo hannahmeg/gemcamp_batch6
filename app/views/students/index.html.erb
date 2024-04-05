@@ -1,0 +1,17 @@
+<h1>Student List</h1>
+
+<table>
+  <thead>
+  <td>Name</td>
+  <td>LRN</td>
+  <td>Birthdate</td>
+  <td>Phone Numbers</td>
+  </thead>
+  <% @student.each do |student| %>
+    <tr>
+      <td><%= student.name %></td>
+      <td><%= student.student_number %></td>
+<!--      <td><%#= student.phone_number %></td>-->
+    </tr>
+  <% end %>
+</table>
