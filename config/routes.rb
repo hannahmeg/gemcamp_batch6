@@ -12,5 +12,7 @@ Rails.application.routes.draw do
     resources :comments, except: :show
   end
 
-  resources :students
+  resources :students do
+    resources :phone_numbers
+  end
 end

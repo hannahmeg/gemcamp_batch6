@@ -11,7 +11,10 @@
     <tr>
       <td><%= student.name %></td>
       <td><%= student.student_number %></td>
-<!--      <td><%#= student.phone_number %></td>-->
+      <td><%= student.birthdate %></td>
+      <td> <%=  student.phone_numbers %> </td>
+<!--      <td> <%# student.each do |student| %>-->
+<!--      <tr><%#= student.phone_numbers %> </tr></td>-->
     </tr>
   <% end %>
 </table>
