@@ -4,11 +4,11 @@ class PostsController < ApplicationController
 
   def index
     if params[:sort_by] == "asc"
-      @posts = Post.all.order("created_at ASC")
+      @posts = Post.includes(:categories).all.order("created_at ASC")
     elsif params[:sort_by] == "desc"
-      @posts = Post.all.order("created_at DESC")
+      @posts = Post.includes(:categories).all.order("created_at DESC")
     else
-      @posts = Post.all.order("created_at DESC")
+      @posts = Post.includes(:categories).all.order("created_at DESC")
     end
   end
 
@@ -65,6 +65,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:title, :content, category_ids: [])
   end
 end
