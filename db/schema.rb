@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_05_081342) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_11_022452) do
   create_table "categories", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -26,7 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_05_081342) do
   end
 
   create_table "phone_numbers", charset: "utf8mb4", force: :cascade do |t|
-    t.string "content"
+    t.string "content", null: false
     t.bigint "student_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
