@@ -19,6 +19,6 @@
   )
 
   4.times do
-    student.phone_numbers.create(number: Faker::PhoneNumber.cell_phone_in_e164)
+    student.phone_numbers.create(content: Faker::PhoneNumber.cell_phone_in_e164)
   end
 end
