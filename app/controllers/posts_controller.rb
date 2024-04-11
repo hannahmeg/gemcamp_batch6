@@ -1,4 +1,6 @@
 # class PostsController < ActionController::Base
+# require 'kaminari'
+
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
@@ -10,6 +12,7 @@ class PostsController < ApplicationController
     else
       @posts = Post.includes(:categories).all.order("created_at DESC")
     end
+    # @posts = @posts.page(params[:page]).per(5)
   end
 
   def new
