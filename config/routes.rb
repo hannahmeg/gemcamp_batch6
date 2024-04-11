@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   resources :students do
     resources :phone_numbers
   end
+
+  resources :categories, except: :show
 end
