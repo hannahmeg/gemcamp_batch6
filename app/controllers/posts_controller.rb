@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     else
       @posts = Post.includes(:categories).all.order("created_at DESC")
     end
-    # @posts = @posts.page(params[:page]).per(5)
+    @posts = @posts.page(params[:page]).per(5)
   end
 
   def new
@@ -35,7 +35,10 @@ class PostsController < ApplicationController
   #   @post = Post.find(params[:id])
   # end
   #
-  def show; end
+  def show
+    @comments = @post.comments.page(params[:page]).per(5)
+    @comment = Comment.new
+  end
 
   # def edit
   #   @post = Post.find(params[:id])

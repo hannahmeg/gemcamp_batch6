@@ -6,6 +6,35 @@
     <p class="blog-post-meta">Published on <%= @post.created_at %></p>
     <p><%= @post.content %></p>
   </article>
-</div>
+
 
 <%#= link_to 'Index', posts_path %>
+
+
+<h2>Comments</h2>
+<ul>
+  <% @comments.each do |comment| %>
+    <li>
+      <%= comment.content %>(<%= comment.created_at %>)
+      <%= link_to 'Edit', edit_post_comment_path(@post, comment) %>
+      <%= button_to 'Delete', post_comment_path(@post, comment), method: :delete %>
+    </li>
+  <% end %>
+</ul>
+  <%= paginate @comments %>
+
+<%= form_with model: @comment, url: post_comments_path(@post), data: { turbo: false } do |form| %>
+  <% if @comment.errors.any? %>
+    <ul>
+      <% @comment.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div>
+    <%= form.label :"New comment" %>
+    <%= form.text_field :content %>
+  </div>
+  <%= form.submit %>
+<% end %>
+</div>

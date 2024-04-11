@@ -4,7 +4,6 @@ class CommentsController < ApplicationController
 
   def index
     @comments = @post.comments
-                     # .page(params[:page]).per(5)
   end
 
   def new
@@ -15,7 +14,8 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build(comment_params)
     if @comment.save
       flash[:notice] = 'Comment created successfully'
-      redirect_to post_comments_path(@post)
+      # redirect_to post_comments_path(@post)
+      redirect_to post_path(@post)
     else
       render :new
     end
@@ -26,7 +26,8 @@ class CommentsController < ApplicationController
   def update
     if @comment.update(comment_params)
       flash[:notice] = 'Comment updated successfully'
-      redirect_to post_comments_path(@post)
+      # redirect_to post_comments_path(@post)
+      redirect_to post_path(@post)
 
     else
       render :edit
@@ -37,7 +38,8 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
     flash[:notice] = 'Comment deleted successfully'
-    redirect_to post_comments_path(@post)
+    # redirect_to post_comments_path(@post)
+    redirect_to post_path(@post)
   end
 
   private
