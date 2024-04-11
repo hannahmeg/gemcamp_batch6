@@ -12,9 +12,25 @@
       <td><%= student.name %></td>
       <td><%= student.student_number %></td>
       <td><%= student.birthdate %></td>
-      <td> <%=  student.phone_numbers %> </td>
-<!--      <td> <%# student.each do |student| %>-->
-<!--      <tr><%#= student.phone_numbers %> </tr></td>-->
-    </tr>
+      <td>
+        <ul>
+          <% student.phone_numbers.each do |phone_number| %>
+            <li><%= phone_number.content %></li>
+          <% end %>
+        </ul>
+      </td>
   <% end %>
-</table>
+
+
+
+
+
+  <%# @phone_number.each do |phone_number| %>
+<!--    <tr>-->
+<!--      <td><%#= phone_number.content %> <%#= phone_number.student_id %></td>-->
+<!--    </tr>-->
+  <%# end %>
+<!--</table>-->
+
+<%# if student.student_number == phone_number.student_id %>
+<%#= phone_numbers.content %>
