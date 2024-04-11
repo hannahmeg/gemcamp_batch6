@@ -19,15 +19,15 @@
   end
 end
 
-# 20.times do |index|
-#   student = Student.create(
-#     name: Faker::Name.name,
-#     student_number: Faker::Number.number(digits: 6),
-#     birthdate: Faker::Date.birthday(min_age: 18, max_age: 30)
-#   )
-#
-#   4.times do
-#     student.phone_numbers.create(content: Faker::PhoneNumber.cell_phone_in_e164)
-#   end
-# end
+20.times do |index|
+  student = Student.create(
+    name: Faker::Name.name,
+    student_number: Faker::Number.number(digits: 6),
+    birthdate: Faker::Date.birthday(min_age: 18, max_age: 30)
+  )
+
+  4.times do
+    student.phone_numbers.create(content: Faker::PhoneNumber.cell_phone_in_e164)
+  end
+end
 
