@@ -25,14 +25,19 @@
     </ul>
   <% end %>
   <div class="mb-3">
-    <%= form.label :title, 'Title:', class: 'form-label' %>
+    <%= form.label :"title:", class: 'form-label' %>
     <%= form.text_field :title, class: 'form-control' %>
   </div>
   <div class="mb-3">
-    <%= form.label :content, 'Content:', class: 'form-label' %>
+    <%= form.label :"content:", class: 'form-label' %>
     <%= form.text_field :content, class: 'form-control' %>
   </div>
-  <div class="buttons">
-    <%= form.submit class: 'button' %>
+  <div class = "buttons">
+  <%= form.submit class: 'button'%>
   </div>
 <% end %>
+
+
+<!--<div>-->
+  <%#= form.collection_check_boxes :category_ids, Category.all, :id, :name %>
+<!--</div>-->
