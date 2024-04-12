@@ -67,5 +67,6 @@ group :development do
   # gem "spring"
   gem 'faker'
   gem 'kaminari'
+  gem 'devise'
 end
 
