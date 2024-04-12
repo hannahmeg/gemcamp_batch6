@@ -12,7 +12,6 @@
         </div>
       <% end %>
     </div>
-    <!-- Your other content here -->
 
   </div>
   <table class="table">
@@ -32,16 +31,14 @@
       <tr>
         <td><%= post.id %></td>
         <td><%= post.title %></td>
-        <td><%= post.content %></td>
+        <td><%= truncate(post.content, length: 50, omission: '...') %></td>
         <td><%= post.categories.pluck(:name).join(', ') %></td>
-        <td><%= post.created_at %></td>
-        <td><%= post.updated_at %></td>
+        <td><%= post.created_at.strftime("%m/%d/%Y %H:%M:%S") %></td>
+        <td><%= post.updated_at.strftime("%m/%d/%Y %H:%M:%S") %></td>
         <td>
           <%= link_to 'Show', post_path(post) %>
           <%= link_to 'Edit', edit_post_path(post) %>
           <%= button_to 'Delete', post_path(post), method: :delete, class: 'btn btn-outline-danger' %>
-          <%#= link_to 'Comments', post_comments_path(post) %>
-          <%#= link_to 'New Comment', new_post_comment_path(post) %>
         </td>
       </tr>
     <% end %>

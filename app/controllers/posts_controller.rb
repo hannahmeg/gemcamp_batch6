@@ -5,13 +5,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:sort_by] == "asc"
-      @posts = Post.includes(:categories).all.order("created_at ASC")
-    elsif params[:sort_by] == "desc"
-      @posts = Post.includes(:categories).all.order("created_at DESC")
-    else
-      @posts = Post.includes(:categories).all.order("created_at DESC")
-    end
+    @posts = Post.includes(:categories).all.order(created_at: params[:sort_by] == "asc" ? :asc : :desc)
     @posts = @posts.page(params[:page]).per(5)
   end
 

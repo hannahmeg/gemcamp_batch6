@@ -23,8 +23,6 @@
     .navbar-nav .nav-link.active {
         font-weight: bold;
     }
-
-
 </style>
 
 <body>
@@ -41,16 +39,12 @@
   </div>
 </nav>
 
-
 <% if flash[:notice] %>
   <p class="notice"><%= notice %></p>
 <% end %>
 <% if flash[:alert] %>
   <p class="alert"><%= alert %></p>
 <% end %>
-
-
-<%#= render partial: "welcome/header" %>
 <%= yield %>
 </body>
 </html>
