@@ -7,7 +7,21 @@ class PostsController < ApplicationController
   before_action :validate_post_owner, only: [:edit, :update, :destroy]
 
   def index
-    @posts = Post.includes(:categories, :user).all.order(created_at: params[:sort_by] == "asc" ? :asc : :desc)
+    # render json: params
+    @posts = Post.includes(:categories, :user).all
+
+    # Filter by category
+    if params[:category].present?
+      category_names = params[:category]
+      @posts = @posts.joins(:categories).where(categories: { name: category_names })
+    end
+
+    # Filter by username
+    if params[:username].present?
+      @posts = @posts.joins(:user).where("users.username LIKE ?", "%#{params[:username]}%")
+    end
+
+    @posts = @posts.order(created_at: params[:sort_by] == "asc" ? :asc : :desc)
     @posts = @posts.page(params[:page]).per(5)
   end
 
