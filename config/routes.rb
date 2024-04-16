@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   end
 
   resources :categories, except: :show
+
+  resources :comments, only: [:index]
 end
