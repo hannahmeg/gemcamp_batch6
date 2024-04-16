@@ -1,23 +1,38 @@
-
-
-
 <div class="container-md">
   <div class="row">
     <div class="col">
       <h1 class="float-left">Post List</h1>
     </div>
-    <div class="col text-right">
-      <%= form_tag posts_path, method: :get, class: "form-inline" do %>
-        <div class="d-flex justify-content-end">
-          <label for="sort_by" class="mr-2">Sort By:</label>
-          <%= select_tag :sort_by, options_for_select({ "Ascending" => "asc", "Descending" => "desc" }, params[:sort_by]), class: "form-control form-control-sm mr-2", style: "width: 100px;" %>
-          <%= submit_tag "Sort", class: "btn btn-primary" %>
-        </div>
-      <% end %>
+
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 10px;">
+      <div>
+        <%= form_tag posts_path, method: :get do %>
+          <%= label_tag 'category', 'Filter by Category:' %><br>
+          <% ['Technology', 'Travel', 'Lifestyle', 'Fashion', 'Food'].each do |category| %>
+            <%= check_box_tag 'category[]', category, params[:category]&.include?(category), style: 'margin-right: 10px;' %>
+            <%= label_tag category, category, style: 'margin-right: 10px;' %>
+          <% end %><br>
+
+          <%= label_tag 'username', 'Filter by Username:', style: 'margin-right: 10px;' %>
+          <%= text_field_tag 'username', params[:username], style: 'margin-right: 10px;' %>
+
+          <%= submit_tag 'Filter' %>
+        <% end %>
+      </div>
+
+      <div>
+        <%= form_tag posts_path, method: :get, class: "form-inline" do %>
+          <div class="d-flex justify-content-end">
+            <label for="sort_by" class="mr-2">Sort By:</label>
+            <%= select_tag :sort_by, options_for_select({ "Ascending" => "asc", "Descending" => "desc" }, params[:sort_by]), class: "form-control form-control-sm mr-2", style: "width: 100px;" %>
+            <%= submit_tag "Sort", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
     </div>
 
-  </div>
-  <table class="table">
+
+    <table class="table">
     <thead class="table-dark">
     <tr>
       <th>ID</th>
@@ -39,7 +54,7 @@
         <td><%= post.categories.pluck(:name).join(', ') %></td>
         <td><%= post.created_at %></td>
         <td><%= post.updated_at %></td>
-        <td><%= post.user&.email %></td>
+        <td><%= post.user.username %></td>
         <td>
           <%= link_to 'Show', post_path(post) %>
           <%= link_to 'Edit', edit_post_path(post) if user_signed_in? && post.user == current_user %>
