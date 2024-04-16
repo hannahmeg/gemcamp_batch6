@@ -42,12 +42,22 @@
   </div>
 </nav>
 
-<% if user_signed_in? %>
-  <h2>Hello <%= current_user.email %></h2>
-  <%= button_to 'Sign out', destroy_user_session_path, class: "btn btn-sm btn-danger", method: :delete %>
-<% else %>
-  <%= button_to 'Sign in', new_user_session_path, class: "btn btn-sm btn-success" %>
-<% end %>
+<div class="container-md">
+<div class="d-flex justify-content-between">
+  <div>
+    <% if user_signed_in? %>
+      <h2>Hello <%= current_user.email %></h2>
+    <% end %>
+  </div>
+  <div>
+    <% if user_signed_in? %>
+      <%= button_to 'Sign out', destroy_user_session_path, class: "btn btn-sm btn-danger", method: :delete %>
+    <% else %>
+      <%= button_to 'Sign in', new_user_session_path, class: "btn btn-sm btn-success" %>
+    <% end %>
+  </div>
+</div>
+</div>
 
 <% if flash[:notice] %>
   <p class="notice"><%= notice %></p>
