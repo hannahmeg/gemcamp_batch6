@@ -1,13 +1,40 @@
-<h1>Title <%= @post.title %></h1>
-<h2>Comments</h2>
-<ul>
-  <% @comments.each do |comment| %>
-    <li>
-      <%= comment.content %>(<%= comment.created_at %>)
-      <%= link_to 'Edit', edit_post_comment_path(@post, comment) %>
-      <%= button_to 'Delete', post_comment_path(@post, comment), method: :delete %>
-    </li>
-  <% end %>
-</ul>
+<!--<h1>Title <%#= @post.title %></h1>-->
+<!--<h2>Comments</h2>-->
+<!--<ul>-->
+  <%# @comments.each do |comment| %>
+<!--    <li>-->
+<!--      <%#= comment.content %>(<%#= comment.created_at %>)-->
+      <%#= link_to 'Edit', edit_post_comment_path(@post, comment) %>
+      <%#= button_to 'Delete', post_comment_path(@post, comment), method: :delete %>
+<!--    </li>-->
+  <%# end %>
+<!--</ul>-->
 
-<%= link_to 'Post List', posts_path %>
+<%#= link_to 'Post List', posts_path %>
+
+<!-- app/views/comments/index.html.erb -->
+<h1>All Comments</h1>
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Content</th>
+    <th>Post</th>
+    <th>User</th>
+    <th>Created At</th>
+    <th>Updated At</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @comments.each do |comment| %>
+    <tr>
+      <td><%= comment.id %></td>
+      <td><%= comment.content %></td>
+      <td><%= comment.post.title %></td>
+      <td><%= comment.user.username %></td>
+      <td><%= comment.created_at %></td>
+      <td><%= comment.updated_at %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

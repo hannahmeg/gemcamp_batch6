@@ -42,6 +42,7 @@
       <th>Created At</th>
       <th>Updated At</th>
       <th>User</th>
+      <th>Comments Count</th>
       <th>Action</th>
     </tr>
     </thead>
@@ -55,6 +56,7 @@
         <td><%= post.created_at %></td>
         <td><%= post.updated_at %></td>
         <td><%= post.user.username %></td>
+        <td><%= post.comments_count %></td>
         <td>
           <%= link_to 'Show', post_path(post) %>
           <%= link_to 'Edit', edit_post_path(post) if user_signed_in? && post.user == current_user %>
