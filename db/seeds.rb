@@ -10,17 +10,22 @@
   user = User.create(email: Faker::Internet.email, password: "123456", username: Faker::Internet.unique.user_name, address: Faker::Address.full_address, phone_number: Faker::PhoneNumber.cell_phone_in_e164)
 end
 
+categories = ['Technology', 'Travel', 'Lifestyle', 'Fashion', 'Food']
+categories.each do |category_name|
+  Category.find_or_create_by(name: category_name)
+end
+
 100.times do |index|
-  user = User.all.sample  # Get a random user
-  post = user.posts.create(title: Faker::Lorem.sentence(word_count: 3, supplemental: false, random_words_to_add: 0).chop,
-                           content: Faker::Lorem.paragraph)
+  post = Post.new(title: Faker::Lorem.sentence(word_count: 3, supplemental: false, random_words_to_add: 0).chop,
+                     content: Faker::Lorem.paragraph)
+  post.user = User.all.sample
+  post.save
 
-  num_categories = rand(1..4)
+  rand(1..5).times do
+    category = Category.all.sample
+    next if post.categories.include? category
 
-  categories = ['Technology', 'Travel', 'Lifestyle', 'Fashion', 'Food'].sample(num_categories)
-
-  categories.each do |category_name|
-    post.categories.find_or_create_by(name: category_name)
+    post.categories << category
   end
 end
 
