@@ -24,6 +24,9 @@
         font-weight: bold;
     }
 
+    .black-text {
+        color: black;
+    }
 
 </style>
 
@@ -42,11 +45,11 @@
   </div>
 </nav>
 
-<div class="container-md">
+<!--<div class="container-md">-->
 <div class="d-flex justify-content-between">
   <div>
     <% if user_signed_in? %>
-      <h2>Hello <%= current_user.email %></h2>
+      <h2 class="black-text">Hello <%= current_user.email %></h2>
     <% end %>
   </div>
   <div>
@@ -57,7 +60,7 @@
     <% end %>
   </div>
 </div>
-</div>
+<!--</div>-->
 
 <% if flash[:notice] %>
   <p class="notice"><%= notice %></p>
