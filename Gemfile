@@ -69,5 +69,6 @@ group :development do
   gem 'kaminari'
   gem 'devise'
   gem 'carrierwave'
+  gem 'rest-client'
 end
 
