@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   # get 'posts/new', to: 'posts#new'
   resources :posts do
     resources :comments, except: :show
+    get :api_news, on: :collection
   end
 
   resources :students do
