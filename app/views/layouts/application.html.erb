@@ -45,13 +45,15 @@
   </div>
 </nav>
 
-<!--<div class="container-md">-->
+<div class="container-md">
 <div class="d-flex justify-content-between">
   <div>
     <% if user_signed_in? %>
-      <h2 class="black-text">Hello <%= current_user.email %></h2>
-    <% end %>
+    <h2 class="black-text" style="display: inline-block;">Hello <%= current_user.email %></h2>
+    <%= image_tag(current_user.image_url, style: "max-height: 50px; max-width: 50px; vertical-align: middle; margin-left: 10px;") if current_user.image.present? %>
+      <% end %>
   </div>
+
   <div>
     <% if user_signed_in? %>
       <%= button_to 'Sign out', destroy_user_session_path, class: "btn btn-sm btn-danger", method: :delete %>
@@ -60,7 +62,7 @@
     <% end %>
   </div>
 </div>
-<!--</div>-->
+</div>
 
 <% if flash[:notice] %>
   <p class="notice"><%= notice %></p>

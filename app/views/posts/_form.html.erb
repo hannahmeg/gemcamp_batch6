@@ -32,7 +32,13 @@
     <%= form.label :"content:", class: 'form-label' %>
     <%= form.text_field :content, class: 'form-control' %>
   </div>
-  <div class = "buttons">
-  <%= form.submit class: 'button'%>
+  <div class="mb-3">
+    <%= form.collection_check_boxes :category_ids, Category.all, :id, :name %>
+  </div>
+  <div>
+    <%= form.file_field :image %>
+  </div>
+  <div class="buttons">
+    <%= form.submit class: 'button' %>
   </div>
 <% end %>

@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   default_scope { where(deleted_at: nil) }
+  mount_uploader :image, ImageUploader
 
   validates :title, presence: true
   validates :content, presence: true
