@@ -70,5 +70,6 @@ group :development do
   gem 'devise'
   gem 'carrierwave'
   gem 'rest-client'
+  gem 'active_model_serializers'
 end
 
