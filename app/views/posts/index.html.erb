@@ -13,6 +13,9 @@
             <%= label_tag category, category, style: 'margin-right: 10px;' %>
           <% end %><br>
 
+          <%= link_to 'Edit Categories', categories_path if user_signed_in? && current_user.role == 'admin' %>
+          <br>
+
           <%= label_tag 'username', 'Filter by Username:', style: 'margin-right: 10px;' %>
           <%= text_field_tag 'username', params[:username], style: 'margin-right: 10px;' %>
 
@@ -61,8 +64,8 @@
         <td><%= post.comments_count %></td>
         <td>
           <%= link_to 'Show', post_path(post) %>
-          <%= link_to 'Edit', edit_post_path(post) if user_signed_in? && post.user == current_user %>
-          <%= button_to 'Delete', post_path(post), class: 'btn btn-outline-danger', method: :delete if user_signed_in? && post.user == current_user %>
+          <%= link_to 'Edit', edit_post_path(post) if user_signed_in? && (post.user == current_user || current_user.role == 'admin') %>
+          <%= button_to 'Delete', post_path(post), class: 'btn btn-outline-danger', method: :delete if user_signed_in? && (post.user == current_user || current_user.role == 'admin') %>
         </td>
       </tr>
     <% end %>
