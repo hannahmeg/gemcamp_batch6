@@ -71,5 +71,6 @@ group :development do
   gem 'carrierwave'
   gem 'rest-client'
   gem 'active_model_serializers'
+  gem 'aasm'
 end
 
