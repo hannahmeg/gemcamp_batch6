@@ -72,6 +72,7 @@
     </tbody>
   </table>
   <%= paginate @posts %>
+    <%= link_to 'View Orders', orders_path if user_signed_in? && current_user.role == 'admin' %>
   <%= link_to 'New', new_post_path %>
 </div>
 
