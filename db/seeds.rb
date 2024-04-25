@@ -17,7 +17,7 @@ end
 
 100.times do |index|
   post = Post.new(title: Faker::Lorem.sentence(word_count: 3, supplemental: false, random_words_to_add: 0).chop,
-                     content: Faker::Lorem.paragraph)
+                  content: Faker::Lorem.paragraph)
   post.user = User.all.sample
   post.save
 
@@ -39,5 +39,11 @@ end
   4.times do
     student.phone_numbers.create(content: Faker::PhoneNumber.cell_phone_in_e164)
   end
+end
+
+100.times do
+  order = Order.create(
+    amount: Faker::Number.decimal(l_digits: 2), user: User.all.sample)
+  order.save
 end
 
