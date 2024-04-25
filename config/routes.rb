@@ -39,5 +39,15 @@ Rails.application.routes.draw do
       resources :barangays, only: %i[index show], defaults: { format: :json }
     end
   end
+
+  # resources :orders, only: [:index]
+  resources :orders, only: [:index] do
+    member do
+      post :submit
+      post :pay
+      post :fail
+      post :revoke
+    end
+  end
 end
 

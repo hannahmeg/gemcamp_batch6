@@ -61,6 +61,16 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_25_062045) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "orders", charset: "utf8mb4", force: :cascade do |t|
+    t.decimal "amount", precision: 12, scale: 2
+    t.string "serial_number"
+    t.bigint "user_id"
+    t.string "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "phone_numbers", charset: "utf8mb4", force: :cascade do |t|
     t.string "content", null: false
     t.bigint "student_id", null: false
