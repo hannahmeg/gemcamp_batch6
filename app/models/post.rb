@@ -10,6 +10,8 @@ class Post < ApplicationRecord
   has_many :categories, through: :post_category_ships
   belongs_to :user
 
+  enum status: { published: 0, unpublished: 1 }
+
   def destroy
     update(deleted_at: Time.now)
   end
