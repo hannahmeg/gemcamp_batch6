@@ -43,7 +43,7 @@ end
 
 100.times do
   order = Order.create(
-    amount: Faker::Number.decimal(l_digits: 2), user: User.all.sample)
+    amount: Faker::Number.decimal(l_digits: 2), user: User.all.sample)  #user clients only
   order.save
 end
 
