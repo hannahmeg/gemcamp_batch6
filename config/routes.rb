@@ -7,12 +7,19 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get 'contact', to: 'welcome#contact'
   get 'about', to: 'welcome#about'
-  # get 'posts/index', to: 'posts#index'
-  # get 'posts/new', to: 'posts#new'
-  resources :posts do
-    resources :comments, except: :show
-    get :api_news, on: :collection
+
+  constraints(ClientDomainConstraint.new) do
+    resources :orders, only: [:index]
+    resources :posts do
+      resources :comments, except: :show
+      get :api_news, on: :collection
+      member do
+        get :unpublish
+      end
+    end
   end
+
+  # get 'archives', to
 
   resources :students do
     resources :phone_numbers
@@ -41,13 +48,18 @@ Rails.application.routes.draw do
   end
 
   # resources :orders, only: [:index]
-  resources :orders, only: [:index] do
-    member do
-      post :submit
-      post :pay
-      post :fail
-      post :revoke
+  constraints(AdminDomainConstraint.new) do
+    resources :posts, only: [:index] do
+    end
+    resources :orders, only: [:index] do
+      member do
+        post :submit
+        post :pay
+        post :fail
+        post :revoke
+      end
     end
   end
 end
+
 
