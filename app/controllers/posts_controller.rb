@@ -2,12 +2,12 @@
 # require 'kaminari'
 
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :unpublish]
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :validate_post_owner, only: [:edit, :update, :destroy]
+  before_action :validate_post_owner, only: [:edit, :update, :destroy, :unpublish]
 
   def index
-    @posts = Post.includes(:categories, :user).all
+    @posts = Post.includes(:categories, :user).where(status: 'published')
 
     if params[:category].present?
       category_names = params[:category]
@@ -72,6 +72,14 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
+
+  def unpublish
+    @post.update(status: 'unpublished')
+    flash[:notice] = 'Post was successfully unpublished'
+    redirect_to posts_path
+  end
+
+
   def api_news
     api_key = ENV['API_KEY']
     url = 'https://newsapi.org/v2/top-headlines'
@@ -94,7 +102,7 @@ class PostsController < ApplicationController
   end
 
   def validate_post_owner
-    unless @post.user == current_user
+    unless @post.user == current_user || current_user.role == 'admin'
       flash[:notice] = 'the post not belongs to you'
       redirect_to posts_path
     end
