@@ -25,6 +25,8 @@ class Order < ApplicationRecord
     end
   end
 
+  private
+
   def revise_balance
     user.update(balance: user.balance += amount)
   end
@@ -36,8 +38,6 @@ class Order < ApplicationRecord
   def balance_enough?
     user.balance >= self.amount
   end
-
-  private
 
   def assign_serial_number
     self.update(serial_number: "gem-#{id.to_s.rjust(9, '0')}")
