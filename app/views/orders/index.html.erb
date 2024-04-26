@@ -1,7 +1,17 @@
 <div class="container-md">
   <div class="row">
     <div class="col">
-      <h1 class="float-left">All Comments</h1>
+      <h1 class="float-left">All Orders</h1>
+    </div>
+
+    <div>
+      <%= form_tag orders_path, method: :get, class: "form-inline" do %>
+        <div class="d-flex justify-content-end">
+          <label for="sort_by" class="mr-2">Sort By:</label>
+          <%= select_tag :sort_by, options_for_select({ "Ascending" => "asc", "Descending" => "desc" }, params[:sort_by]), class: "form-control form-control-sm mr-2", style: "width: 100px;" %>
+          <%= submit_tag "Sort", class: "btn btn-primary" %>
+        </div>
+      <% end %>
     </div>
 
     <table>
@@ -37,3 +47,5 @@
       <% end %>
       </tbody>
     </table>
+
+    <%= paginate @orders %>
